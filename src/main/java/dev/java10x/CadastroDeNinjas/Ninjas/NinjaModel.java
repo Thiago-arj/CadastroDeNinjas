@@ -23,6 +23,7 @@ public class NinjaModel {
 
     private String nome;
 
+    @Column(unique = true) //cada email é unico, utilizado para cpf, rg, passaporte..
     private String email;
 
     private int idade;
@@ -31,7 +32,6 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id") // Foreing Key
     private MissoesModel missoes;
-
 
 
 }
