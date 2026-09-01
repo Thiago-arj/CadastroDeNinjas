@@ -24,16 +24,26 @@ public class NinjaService {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);
         return ninjaPorId.orElse(null);
     }
-
+    // Criar Ninja
     public NinjaModel criarninja(NinjaModel ninja) {
         return ninjaRepository.save(ninja);
     }
-
-    /// Deletar o ninja - Tem que ser um metodo VOID
+    // Deletar o ninja - Tem que ser um metodo VOID
     public void deletarNinjaPorId(Long id) {
         ninjaRepository.deleteById(id);
     }
 
+    //Atualiz Ninja
+
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado) {
+        if (ninjaRepository.existsById(id)) {
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
+
+
+    }
 
 
 
