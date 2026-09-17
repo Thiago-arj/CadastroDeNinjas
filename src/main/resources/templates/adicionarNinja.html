@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Ninja</title>
+    <style>
+        body {
+    margin: 0;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    background: #101114;
+    color: white;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form {
+    width: 500px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #1a1c20;
+    border-radius: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b8bdc7;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #30333a;
+    border-radius: 6px;
+    background: #25282e;
+    color: white;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #454a53;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 6px;
+    background: #30343b;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #454a53;
+}
+    </style>
+</head>
+<body>
+
+<h1>Adicionar Novo Ninja</h1>
+<div th:if="${mensagem}" class="mensagem" th:text="${mensagem}"> </div>
+<form th:action="@{/ninjas/ui/salvar}" th:object="${ninja}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" required>
+
+    <br><br>
+
+    <label>Email:</label>
+    <input type="email" th:field="*{email}" required>
+
+    <br><br>
+
+    <label>Idade:</label>
+    <input type="number" th:field="*{idade}" required>
+
+    <br><br>
+
+    <label>Imagem:</label>
+    <input type="text" th:field="*{img_url}">
+
+    <br><br>
+
+    <label>Rank:</label>
+    <input type="text" th:field="*{rank}">
+
+    <br><br>
+
+    <button type="submit">Salvar Ninja</button>
+
+</form>
+
+</body>
+</html>
